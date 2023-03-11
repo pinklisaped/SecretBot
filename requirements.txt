@@ -1,0 +1,6 @@
+aiogram
+sqlalchemy
+sqlalchemy-utils
+pymysql
+psycopg2
+pyodbc
