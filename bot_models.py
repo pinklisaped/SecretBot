@@ -1,4 +1,5 @@
 import os
+import bot_settings
 from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy import Column, Integer, String, DateTime
@@ -35,7 +36,7 @@ class Secrets(Base):
     expired = Column(DateTime(timezone=True), nullable=True)
 
 # Base create db
-db_uri = os.environ.get('DB_CONNECT')
+db_uri = bot_settings.DB_URI
 db_type = db_uri.split(':', 2)[0]
 db_uri = db_uri.replace(db_type, drivers.get(db_type, ''), 1)
 engine = create_engine(db_uri)
