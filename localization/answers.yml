@@ -1,0 +1,46 @@
+---
+cmd_send_error_user:
+  en: Wrong user id!
+  ru: Некорректый идентификатор пользователя!
+
+cmd_send_error_expired:
+  en: Wrong time expired!
+  ru: Некорректное время жизни секрета!
+  
+cmd_send_error_args:
+  en: Wrong <b>secret</b> or <b>service</b>!
+  ru: Некорретные параметры <b>secret</b> или <b>service</b>!
+
+cmd_send_error_db_count:
+  en: Too many secrets for you!
+  ru: Превышено количество секретов для вас!
+
+cmd_send_user_success:
+  en: You have a new secret, send to bot <code>/get %secret_hash%</code>
+  ru: Вам передали секрет, для получения отправьте боту <code>/get %secret_hash%</code>
+
+cmd_send_user_delivered:
+  en: The secret was delivered!
+  ru: Ваш секрет передан!
+  
+cmd_send_user_unreach:
+  en: The secret was not delivered, send this command to user <code>/get %secret_hash%</code>
+  ru: Пользователь недоступен для доставки, передайте ему команду для получения вручную <code>/get %secret_hash%</code>
+
+cmd_get_hash_incorrect:
+  en: The command is incorrect!
+  ru: Команда некорректно вызвана!
+
+cmd_get_hash_not_found:
+  en: The secret not found!
+  ru: Секрет не существует!
+
+cmd_get_hash_correct:
+  en: | 
+    Your secret for <b>%service%</b>:
+    <code>%secret%</code>.
+    This message should be deleted after timeout.
+  ru: |
+    Ваш секрет для <b>%service%</b>:
+    <code>%secret%</code>.
+    Данное сообщение будет удалено по таймауту.
