@@ -27,7 +27,7 @@ async def command_service(msg: types.Message):
     # Handling text by simple template
     text = bot_localization.get_localization_file(
         command, msg.from_user.language_code)
-    text = replace_engine(text, msg, username=msg.from_user.username,
+    text = replace_engine(text, username=msg.from_user.username,
                           firstname=msg.from_user.first_name, lastname=msg.from_user.last_name)
     result = await msg.bot.send_message(msg.chat.id, text,
                                         parse_mode='HTML', disable_web_page_preview=True)
