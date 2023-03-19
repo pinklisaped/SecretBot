@@ -31,7 +31,6 @@ async def command_service(msg: types.Message):
                           firstname=msg.from_user.first_name, lastname=msg.from_user.last_name)
     result = await msg.bot.send_message(msg.chat.id, text,
                                         parse_mode='HTML', disable_web_page_preview=True)
-    await result.delete()
 
 
 msg_send_regex = r'(?P<key>user|expired|service|secret):\s*(?P<val>(?:(?!user\b)(?!expired\b)(?!service\b)(?!secret\b)[\s\S])*)'
@@ -148,7 +147,7 @@ async def command_get(msg: types.Message):
     if not mc:
         msg_text = replace_engine(bot_localization.get_answer(
             'cmd_get_hash_incorrect', msg.from_user.language_code))
-        msg.answer(msg_text, parse_mode='HTML')
+        await msg.answer(msg_text, parse_mode='HTML')
         return
 
     secret_hash = mc.group('hash')
@@ -172,7 +171,7 @@ def replace_engine(text: str, **replaces) -> str:
     Using replace_engine('one %template_var_1%', template_var_1='is 1')
     '''
     for key, val in replaces.items():
-        text = text.replace(f'%{key}%', val)
+        text = text.replace(f'%{key}%', val or '')
 
     # escapes = ['(',')','.','-', '#']
     # for escape in escapes:
