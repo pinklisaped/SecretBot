@@ -27,6 +27,10 @@ cmd_send_user_unreach:
   en: The secret was not delivered, send this command to user <code>/get %secret_hash%</code>
   ru: Пользователь недоступен для доставки, передайте ему команду для получения вручную <code>/get %secret_hash%</code>
 
+cmd_send_user_not_exists:
+  en: Send this command to user <code>/get %secret_hash%</code>
+  ru: Для получения секрета отправьте пользователю команду <code>/get %secret_hash%</code>
+
 cmd_get_hash_incorrect:
   en: The command is incorrect!
   ru: Команда некорректно вызвана!

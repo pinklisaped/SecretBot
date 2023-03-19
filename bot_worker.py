@@ -56,6 +56,8 @@ async def command_send(msg: types.Message):
         for mc in matches:
             key = mc[0].strip()
             value = mc[1].strip()
+            if not value:
+                continue
             match key:
                 case 'user':
                     if value.isdigit():
@@ -118,17 +120,22 @@ async def command_send(msg: types.Message):
                             message_id=new_msg.message_id))
                 session.commit()
 
+                # Send answer to owner
                 msg_text = replace_engine(bot_localization.get_answer(
                     'cmd_send_user_delivered', msg.from_user.language_code), secret_hash=secret_hash)
-                new_msg = await bot.send_message(user_id_from, msg_text, disable_web_page_preview=True)
+                new_msg = await bot.send_message(user_id_from, msg_text, parse_mode='HTML', disable_web_page_preview=True)
                 session.add(Message(user_id_chat=user_id_to,
                             message_id=new_msg.message_id))
                 session.commit()
 
             except Exception:
                 # Send hash to this chat
+                if not user_id_to:
+                    answer_var = 'cmd_send_user_not_exists'
+                else:
+                    answer_var = 'cmd_send_user_unreach'
                 msg_text = replace_engine(bot_localization.get_answer(
-                    'cmd_send_user_unreach', msg.from_user.language_code), secret_hash=secret_hash)
+                    answer_var, msg.from_user.language_code), secret_hash=secret_hash)
                 new_msg = await bot.send_message(user_id_from, msg_text, parse_mode='HTML', disable_web_page_preview=True)
                 session.add(Message(user_id_chat=user_id_from,
                             message_id=new_msg.message_id))
