@@ -1,5 +1,5 @@
 '''
-Main process telegram bot
+Main process telegram bot.
 '''
 import re
 from datetime import datetime, timedelta
