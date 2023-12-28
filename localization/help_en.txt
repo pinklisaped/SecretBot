@@ -1,8 +1,8 @@
 <u>CMD syntax</u> /send:
 
 <i>/send
-user: Id or @Login # Not required
-expired: 1h or 2d or 3m or 4y # Not required
+user: Id user # Not required
+expired: 30m or 1h or 2d or 3w # Not required
 service: Text or Url # <b>Required</b>
 secret: Somepassword or string # <b>Required</b></i>
 
@@ -11,7 +11,7 @@ Send the hash to other person, that his can to get the secret.
 If user is empty, then you will can to send hash for any person.
 
 Template:
-<code>/send user:  expired:  service:  secret: </code>
+<code>/send user: expired: service: secret: </code>
 
 
 <u>CMD syntax</u> /get:
