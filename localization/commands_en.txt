@@ -1,0 +1,5 @@
+start - Start bot
+send - Send secret
+get - Get secret by hash
+list_secrets - Show all my active secrets
+drop_secrets - Drop all my secrets
